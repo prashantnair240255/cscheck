@@ -1,0 +1,30 @@
+<h1>New lab</h1>
+
+<%= render 'form' %>
+
+<p><br /><br />
+	<b>Output</b><br /><br />
+  	<% #@lab.description
+  		if @i.object_id!=4
+        if @output.object_id!=2
+  			#full_text = File.read("files/output"+@i.to_s+".txt")
+  			 error_text = File.read("files/err"+@i.to_s+".txt")
+         full_text = ""
+  		  else         
+  			 full_text = File.read("files/output"+@i.to_s+".txt")
+  			 error_text = ""
+  		  end
+      else
+        full_text = ""
+        error_text = ""
+      end
+	%>
+	<%= full_text %>
+</p>
+<p><br /><br />
+	<b>Errors</b><br /><br />
+	<%= error_text %>
+</p><br /><br />
+
+<%= link_to 'Back', labs_path %>
+<%= link_to 'New Lab', new_lab_path %>
